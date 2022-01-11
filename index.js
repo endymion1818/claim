@@ -6,6 +6,12 @@ const app = express();
 
 app.use(cors)
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 const mockClaim = {
     isSuccess: true,
     hasSubmittedClaim: true
@@ -20,6 +26,5 @@ app.get('/:orderid', (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-    res.header('Access-Control-Allow-Origin', "*");
     console.log(`app listening on ${process.env.PORT}`);
 })
