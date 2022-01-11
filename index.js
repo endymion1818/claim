@@ -9,12 +9,10 @@ const mockClaim = {
 }
 
 app.get('/', (req, res) => {
-    res.header('Access-Control-Allow-Origin', "*");
     return res.send('ok')
 });
 
 app.get('/:orderid', (req, res) => {
-    res.header('Access-Control-Allow-Origin', "*");
     return res.send(JSON.stringify(mockClaim))
 });
 
